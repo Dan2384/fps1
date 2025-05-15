@@ -1,3 +1,11 @@
+namespace SpriteKind {
+    export const Text = SpriteKind.create()
+    export const Ball = SpriteKind.create()
+    export const Booth = SpriteKind.create()
+    export const Mouse = SpriteKind.create()
+    export const Crosshair = SpriteKind.create()
+    export const Moon = SpriteKind.create()
+}
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     projectile = sprites.createProjectileFromSprite(img`
         . . . . . . . . . . . . . . . . 
@@ -824,7 +832,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, oth
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    statusbar.value += -2
+    statusbar.value += -0.5
 })
 let mySprite22: Sprite = null
 let mySprite21: Sprite = null
@@ -980,14 +988,15 @@ mySprite = Render.getRenderSpriteVariable()
 tiles.placeOnTile(Render.getRenderSpriteVariable(), tiles.getTileLocation(2, 2))
 Enemy1()
 statusbar = statusbars.create(40, 6, StatusBarKind.Health)
-statusbar.value = 3000
+statusbar.value = 200000000000000
 statusbar.setLabel("Level 1  HP", 15)
 statusbar.setBarBorder(1, 15)
 statusbar.setOffsetPadding(3, 3)
 statusbar.positionDirection(CollisionDirection.Top)
+music.play(music.stringPlayable(music.convertRTTTLToMelody("greenday:d=4,o=6,b=50:32b5,32a,16g,16g,32g,32g,16d,16d,16d,32d,32d,16e,8e,c,32b5,32a,8g,16g,32g,16g.,16d,16d,32d,32d,16e,8e,c,32b5,32a,16g,16g,16g,32g,32g,16d,16d,16d,32d,32d,16e,8e,8c."), 500), music.PlaybackMode.UntilDone)
 forever(function () {
     if (info.score() == 21) {
-        statusbar.value = 1000
+        statusbar.value = 200000000000000
         statusbar.setLabel("Level 2  HP", 15)
         tiles.placeOnTile(Render.getRenderSpriteVariable(), tiles.getTileLocation(2, 2))
     }
