@@ -993,7 +993,8 @@ statusbar.setLabel("Level 1  HP", 15)
 statusbar.setBarBorder(1, 15)
 statusbar.setOffsetPadding(3, 3)
 statusbar.positionDirection(CollisionDirection.Top)
-music.play(music.stringPlayable(music.convertRTTTLToMelody("greenday:d=4,o=6,b=50:32b5,32a,16g,16g,32g,32g,16d,16d,16d,32d,32d,16e,8e,c,32b5,32a,8g,16g,32g,16g.,16d,16d,32d,32d,16e,8e,c,32b5,32a,16g,16g,16g,32g,32g,16d,16d,16d,32d,32d,16e,8e,8c."), 500), music.PlaybackMode.UntilDone)
+music.play(music.stringPlayable(music.convertRTTTLToMelody("MissionI:d=4,o=5,b=100:16g6,8p,16g6,8p,16f6,16p,16f#6,16p,16g6,8p,16g6,8p,16a#6,16p,16c7,16p,16g6,8p,16g6,8p,16f6,16p,16f#6,16p,16g6,8p,16g6,8p,16a#6,16p,16c7,16p,16a#6,16g6,2d6,32p,16a#6,16g6,2c#6,32p,16a#6,16g6,2c6,16p,16a#,16c6"), 300), music.PlaybackMode.UntilDone)
+music.play(music.stringPlayable(music.convertRTTTLToMelody("HauntHouse:d=4,o=5,b=108:2a4,2e,2d#,2b4,2a4,2c,2d,2a#4,2e.,e,1f4,1a4,1d#,2e.,d,2c.,b4,1a4"), 300), music.PlaybackMode.UntilDone)
 forever(function () {
     if (info.score() == 21) {
         statusbar.value = 200000000000000
