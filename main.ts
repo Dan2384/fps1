@@ -744,6 +744,8 @@ function Enemy1 () {
 }
 statusbars.onZero(StatusBarKind.Health, function (status) {
     game.gameOver(false)
+    music.play(music.stringPlayable(music.convertRTTTLToMelody("Benny Hill:o=5,d=16,b=125,b=125:8d.,e,8g,8g,e,d,a4,b4,d,b4,8e,d,b4,a4,b4,8a4,a4,a#4,b4,d,e,d,4g,4p,d,e,d,8g,8g,e,d,a4,b4,d,b4,8e,d,b4,a4,b4,8d,d,d,f#,a,8f,4d,4p,d,e,d,8g,g,g,8g,g,g,8g,8g,e,8e.,8c,8c,8c,8c,e,g,a,g,a#,8g,a,b,a#,b,a,b,8d6,a,b,d6,8b,8g,8d,e6,b,b,d,8a,8g,4g"), 300), music.PlaybackMode.UntilDone)
+    info.setScore(-1)
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     if (mySprite2.overlapsWith(projectile)) {
@@ -993,8 +995,6 @@ statusbar.setLabel("Level 1  HP", 15)
 statusbar.setBarBorder(1, 15)
 statusbar.setOffsetPadding(3, 3)
 statusbar.positionDirection(CollisionDirection.Top)
-music.play(music.stringPlayable(music.convertRTTTLToMelody("MissionI:d=4,o=5,b=100:16g6,8p,16g6,8p,16f6,16p,16f#6,16p,16g6,8p,16g6,8p,16a#6,16p,16c7,16p,16g6,8p,16g6,8p,16f6,16p,16f#6,16p,16g6,8p,16g6,8p,16a#6,16p,16c7,16p,16a#6,16g6,2d6,32p,16a#6,16g6,2c#6,32p,16a#6,16g6,2c6,16p,16a#,16c6"), 300), music.PlaybackMode.UntilDone)
-music.play(music.stringPlayable(music.convertRTTTLToMelody("HauntHouse:d=4,o=5,b=108:2a4,2e,2d#,2b4,2a4,2c,2d,2a#4,2e.,e,1f4,1a4,1d#,2e.,d,2c.,b4,1a4"), 300), music.PlaybackMode.UntilDone)
 forever(function () {
     if (info.score() == 21) {
         statusbar.value = 200000000000000
@@ -1005,5 +1005,14 @@ forever(function () {
 forever(function () {
     if (info.score() == 42) {
         game.gameOver(true)
+        music.play(music.stringPlayable(music.convertRTTTLToMelody("YMCA:o=5,d=8,b=160,b=160:c#6,a#,2p,a#,g#,f#,g#,a#,4c#6,a#,4c#6,d#6,a#,2p,a#,g#,f#,g#,a#,4c#6,a#,4c#6,d#6,b,2p,b,a#,g#,a#,b,4d#6,f#6,4d#6,4f6.,4d#6.,4c#6.,4b.,4a#,4g#"), 120), music.PlaybackMode.UntilDone)
+        info.setScore(100)
+    }
+})
+forever(function () {
+    if (info.score() != (0 >= 0 || 0 == 0)) {
+        music.play(music.stringPlayable(music.convertRTTTLToMelody("007:o=5,d=4,b=320,b=320:c,8d,8d,d,2d,c,c,c,c,8d#,8d#,2d#,d,d,d,c,8d,8d,d,2d,c,c,c,c,8d#,8d#,d#,2d#,d,c#,c,c6,1b.,g,f,1g."), 500), music.PlaybackMode.UntilDone)
+        music.play(music.stringPlayable(music.convertRTTTLToMelody("Greensleaves:o=5,d=4,b=140,b=140:g,2a#,c6,d6.,8d#6,d6,2c6,a,f.,8g,a,2a#,g,g.,8f,g,2a,f,2d,g,2a#,c6,d6.,8e6,d6,2c6,a,f.,8g,a,a#.,8a,g,f#.,8e,f#,2g"), 300), music.PlaybackMode.UntilDone)
+        music.play(music.stringPlayable(music.convertRTTTLToMelody("Monty Python:o=5,d=8,b=180,b=180:d#6,d6,4c6,b,4a#,a,4g#,g,f,g,g#,4g,f,2a#,p,a#,g,p,g,g,f#,g,d#6,p,a#,a#,p,g,g#,p,g#,g#,p,a#,2c6,p,g#,f,p,f,f,e,f,d6,p,c6,c6,p,g#,g,p,g,g,p,g#,2a#,p,a#,g,p,g,g,f#,g,g6,p,d#6,d#6,p,a#,a,p,f6,f6,p,f6,2f6,p,d#6,4d6,f6,f6,e6,f6,4c6,f6,f6,e6,f6,a#,p,a,a#,p,a,2a#"), 300), music.PlaybackMode.UntilDone)
     }
 })
