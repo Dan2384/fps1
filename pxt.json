@@ -7,7 +7,8 @@
         "pxt-raycasting": "github:neintoes/pxt-raycasting#6f3bd81686da0cc654fb0cff7c5c2bf8528480c3",
         "pxt-lantern": "github:felixtsu/pxt-lantern#v0.2.1",
         "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.2",
-        "pxt-rtttl": "github:pelikhan/pxt-rtttl#v0.0.12"
+        "pxt-rtttl": "github:pelikhan/pxt-rtttl#v0.0.12",
+        "Timers": "github:microsoft/arcade-timers#v1.1.0"
     },
     "files": [
         "main.blocks",
