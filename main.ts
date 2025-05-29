@@ -1002,6 +1002,7 @@ Dead = 1
 let life = 0
 let Win = 0
 let level_2 = 0
+let gamewin = 0
 game.onUpdate(function () {
     if (info.score() == 21 && level_2 == 0) {
         level_2 = 1
@@ -1020,10 +1021,23 @@ game.onUpdate(function () {
 })
 game.onUpdate(function () {
     if (info.score() == 42) {
+        music.stopAllSounds()
         Win = 1
-        music.play(music.stringPlayable(music.convertRTTTLToMelody("YMCA:o=5,d=8,b=160,b=160:c#6,a#,2p,a#,g#,f#,g#,a#,4c#6,a#,4c#6,d#6,a#,2p,a#,g#,f#,g#,a#,4c#6,a#,4c#6,d#6,b,2p,b,a#,g#,a#,b,4d#6,f#6,4d#6,4f6.,4d#6.,4c#6.,4b.,4a#,4g#"), 120), music.PlaybackMode.UntilDone)
         info.setScore(100)
+    }
+})
+game.onUpdate(function () {
+    if (gamewin == 1) {
         game.gameOver(true)
+        music.stopAllSounds()
+    }
+})
+game.onUpdate(function () {
+    if (Win == 1) {
+        timer.after(1000, function () {
+            music.play(music.stringPlayable(music.convertRTTTLToMelody("YMCA:o=5,d=8,b=160,b=160:c#6,a#,2p,a#,g#,f#,g#,a#,4c#6,a#,4c#6,d#6,a#,2p,a#,g#,f#,g#,a#,4c#6,a#,4c#6,d#6,b,2p,b,a#,g#,a#,b,4d#6,f#6,4d#6,4f6.,4d#6.,4c#6.,4b.,4a#,4g#"), 300), music.PlaybackMode.InBackground)
+        })
+        gamewin = 1
     }
 })
 forever(function () {
@@ -1034,22 +1048,12 @@ forever(function () {
             music.play(music.stringPlayable(music.convertRTTTLToMelody("Benny Hill:o=5,d=16,b=125,b=125:8d.,e,8g,8g,e,d,a4,b4,d,b4,8e,d,b4,a4,b4,8a4,a4,a#4,b4,d,e,d,4g,4p,d,e,d,8g,8g,e,d,a4,b4,d,b4,8e,d,b4,a4,b4,8d,d,d,f#,a,8f,4d,4p,d,e,d,8g,g,g,8g,g,g,8g,8g,e,8e.,8c,8c,8c,8c,e,g,a,g,a#,8g,a,b,a#,b,a,b,8d6,a,b,d6,8b,8g,8d,e6,b,b,d,8a,8g,4g"), 200), music.PlaybackMode.UntilDone)
             life = 1
         }
-        if (Win == 1) {
-            music.stopAllSounds()
-            music.play(music.stringPlayable(music.convertRTTTLToMelody("YMCA:o=5,d=8,b=160,b=160:c#6,a#,2p,a#,g#,f#,g#,a#,4c#6,a#,4c#6,d#6,a#,2p,a#,g#,f#,g#,a#,4c#6,a#,4c#6,d#6,b,2p,b,a#,g#,a#,b,4d#6,f#6,4d#6,4f6.,4d#6.,4c#6.,4b.,4a#,4g#"), 120), music.PlaybackMode.UntilDone)
-            life = 1
-        }
     }
     if (life == 0) {
         music.play(music.stringPlayable(music.convertRTTTLToMelody("Greensleaves:o=5,d=4,b=140,b=140:g,2a#,c6,d6.,8d#6,d6,2c6,a,f.,8g,a,2a#,g,g.,8f,g,2a,f,2d,g,2a#,c6,d6.,8e6,d6,2c6,a,f.,8g,a,a#.,8a,g,f#.,8e,f#,2g"), 300), music.PlaybackMode.UntilDone)
         if (Dead == 0) {
             music.stopAllSounds()
             music.play(music.stringPlayable(music.convertRTTTLToMelody("Benny Hill:o=5,d=16,b=125,b=125:8d.,e,8g,8g,e,d,a4,b4,d,b4,8e,d,b4,a4,b4,8a4,a4,a#4,b4,d,e,d,4g,4p,d,e,d,8g,8g,e,d,a4,b4,d,b4,8e,d,b4,a4,b4,8d,d,d,f#,a,8f,4d,4p,d,e,d,8g,g,g,8g,g,g,8g,8g,e,8e.,8c,8c,8c,8c,e,g,a,g,a#,8g,a,b,a#,b,a,b,8d6,a,b,d6,8b,8g,8d,e6,b,b,d,8a,8g,4g"), 200), music.PlaybackMode.UntilDone)
-            life = 1
-        }
-        if (Win == 1) {
-            music.stopAllSounds()
-            music.play(music.stringPlayable(music.convertRTTTLToMelody("YMCA:o=5,d=8,b=160,b=160:c#6,a#,2p,a#,g#,f#,g#,a#,4c#6,a#,4c#6,d#6,a#,2p,a#,g#,f#,g#,a#,4c#6,a#,4c#6,d#6,b,2p,b,a#,g#,a#,b,4d#6,f#6,4d#6,4f6.,4d#6.,4c#6.,4b.,4a#,4g#"), 120), music.PlaybackMode.UntilDone)
             life = 1
         }
     }
@@ -1060,10 +1064,10 @@ forever(function () {
             music.play(music.stringPlayable(music.convertRTTTLToMelody("Benny Hill:o=5,d=16,b=125,b=125:8d.,e,8g,8g,e,d,a4,b4,d,b4,8e,d,b4,a4,b4,8a4,a4,a#4,b4,d,e,d,4g,4p,d,e,d,8g,8g,e,d,a4,b4,d,b4,8e,d,b4,a4,b4,8d,d,d,f#,a,8f,4d,4p,d,e,d,8g,g,g,8g,g,g,8g,8g,e,8e.,8c,8c,8c,8c,e,g,a,g,a#,8g,a,b,a#,b,a,b,8d6,a,b,d6,8b,8g,8d,e6,b,b,d,8a,8g,4g"), 200), music.PlaybackMode.UntilDone)
             life = 1
         }
-        if (Win == 1) {
-            music.stopAllSounds()
-            music.play(music.stringPlayable(music.convertRTTTLToMelody("YMCA:o=5,d=8,b=160,b=160:c#6,a#,2p,a#,g#,f#,g#,a#,4c#6,a#,4c#6,d#6,a#,2p,a#,g#,f#,g#,a#,4c#6,a#,4c#6,d#6,b,2p,b,a#,g#,a#,b,4d#6,f#6,4d#6,4f6.,4d#6.,4c#6.,4b.,4a#,4g#"), 120), music.PlaybackMode.UntilDone)
-            life = 1
-        }
+    }
+})
+forever(function () {
+    if (gamewin == 1) {
+        life = 2
     }
 })
