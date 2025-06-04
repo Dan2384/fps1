@@ -865,6 +865,25 @@ let statusbar: StatusBarSprite = null
 let mySprite: Sprite = null
 let level = 0
 Render.setViewMode(ViewMode.raycastingView)
+game.setDialogTextColor(2)
+game.setDialogFrame(img`
+    f f f f f f f f f f f f f f f 
+    f f f f f f f f f f f f f f f 
+    f f f f f f f f f f f f f f f 
+    f f f f f f f f f f f f f f f 
+    f f f f f f f f f f f f f f f 
+    f f f f f f f f f f f f f f f 
+    f f f f f f f f f f f f f f f 
+    f f f f f f f f f f f f f f f 
+    f f f f f f f f f f f f f f f 
+    f f f f f f f f f f f f f f f 
+    f f f f f f f f f f f f f f f 
+    f f f f f f f f f f f f f f f 
+    f f f f f f f f f f f f f f f 
+    f f f f f f f f f f f f f f f 
+    f f f f f f f f f f f f f f f 
+    `)
+game.showLongText("Kill all of the enemies, and watch your back. Good Luck!", DialogLayout.Full)
 scene.setBackgroundImage(img`
     1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
     1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
@@ -1059,6 +1078,14 @@ forever(function () {
     }
     if (life == 0) {
         music.play(music.stringPlayable(music.convertRTTTLToMelody("Monty Python:o=5,d=8,b=180,b=180:d#6,d6,4c6,b,4a#,a,4g#,g,f,g,g#,4g,f,2a#,p,a#,g,p,g,g,f#,g,d#6,p,a#,a#,p,g,g#,p,g#,g#,p,a#,2c6,p,g#,f,p,f,f,e,f,d6,p,c6,c6,p,g#,g,p,g,g,p,g#,2a#,p,a#,g,p,g,g,f#,g,g6,p,d#6,d#6,p,a#,a,p,f6,f6,p,f6,2f6,p,d#6,4d6,f6,f6,e6,f6,4c6,f6,f6,e6,f6,a#,p,a,a#,p,a,2a#"), 300), music.PlaybackMode.UntilDone)
+        if (Dead == 0) {
+            music.stopAllSounds()
+            music.play(music.stringPlayable(music.convertRTTTLToMelody("Benny Hill:o=5,d=16,b=125,b=125:8d.,e,8g,8g,e,d,a4,b4,d,b4,8e,d,b4,a4,b4,8a4,a4,a#4,b4,d,e,d,4g,4p,d,e,d,8g,8g,e,d,a4,b4,d,b4,8e,d,b4,a4,b4,8d,d,d,f#,a,8f,4d,4p,d,e,d,8g,g,g,8g,g,g,8g,8g,e,8e.,8c,8c,8c,8c,e,g,a,g,a#,8g,a,b,a#,b,a,b,8d6,a,b,d6,8b,8g,8d,e6,b,b,d,8a,8g,4g"), 265), music.PlaybackMode.UntilDone)
+            life = 1
+        }
+    }
+    if (life == 0) {
+        music.play(music.stringPlayable(music.convertRTTTLToMelody("Popeye:o=6,d=8,b=160,b=160:a5,c,c,c,4a#5,a5,4c,2p,c,d,a#5,d,4f,d,2c,p,c,d,a#5,d,f,e,d,c,d,c,a5,f5,a5,c,d,c,4a#5,g5,2f5"), 300), music.PlaybackMode.UntilDone)
         if (Dead == 0) {
             music.stopAllSounds()
             music.play(music.stringPlayable(music.convertRTTTLToMelody("Benny Hill:o=5,d=16,b=125,b=125:8d.,e,8g,8g,e,d,a4,b4,d,b4,8e,d,b4,a4,b4,8a4,a4,a#4,b4,d,e,d,4g,4p,d,e,d,8g,8g,e,d,a4,b4,d,b4,8e,d,b4,a4,b4,8d,d,d,f#,a,8f,4d,4p,d,e,d,8g,g,g,8g,g,g,8g,8g,e,8e.,8c,8c,8c,8c,e,g,a,g,a#,8g,a,b,a#,b,a,b,8d6,a,b,d6,8b,8g,8d,e6,b,b,d,8a,8g,4g"), 265), music.PlaybackMode.UntilDone)
